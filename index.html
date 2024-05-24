@@ -20,38 +20,87 @@
 </head>
 <body>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">CVPR 2024 Conference Submission</span>
-          </div>
-          <h1 class="title is-1 publication-title">FitDiff: Robust monocular 3D facial shape and reflectance estimation using Diffusion Models</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              Anonymous CVPR submission
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"> Paper ID: 16094 </span>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">FitDiff: Robust monocular 3D facial shape and reflectance estimation using Diffusion Models</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://stathisgln.github.io/">Stathis Galanakis</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://alexlattas.com">Alexandros Lattas</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://moschoglou.com/">Stylianos Moschoglou</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.imperial.ac.uk/people/s.zafeiriou">Stefanos Zafeiriou</a>
+              </span>
+            </div>
+  
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Imperial College London, UK</span><br>
+            </div>
+  
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2312.04465.pdf"
+                     class="external-link button is-normal is-rounded is-dark">
+                     <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- arXiv Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2312.04465"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
+  
+  
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="subtitle has-text-justified">
+        <p>
+          <b>TL;DR</b>: We introduce FitDiff:<br>
+          &nbsp;&nbsp;&nbsp; 🔥 A multi-modal diffusion-based generative model that
+          jointly produces facial geometry and appearance (Diffuse Albedo, Specular Slbedo, and Normal Maps. <br>
+          &nbsp;&nbsp;&nbsp; 🔥 The first diffusion model conditioned on identity embeddings, acquired
+          from an off-the-shelf face recognition network, whilst introducing a SPADE conditioned UNet architecture. <br>
+          &nbsp;&nbsp;&nbsp; 🔥 Through a novel guidance algorithm, it achieves acurate facial identity reconstruction. <br>
+        </p>
+      </div>
+    </div>
   </div>
-</section>
+</section>  
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <div class="subtitle has-text-justified">
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./videos/fig1_1.mp4"
                 type="video/mp4">
       </video>
-      <br><br>
       <h2 class="subtitle has-text-centered">
         FitDiff, a versatile multi-modal diffusion model, produces relightable facial avatars that seamlessly integrate into various commercial rendering platforms.
       </h2>
@@ -76,22 +125,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this work, we present FitDiff, a diffusion-based 3D facial avatar generative model.
-            This model accurately generates relightable facial avatars, utilizing an identity embedding
-            extracted from an "in-the-wild" 2D facial image.
+             In this work, we present FitDiff, a diffusion-based 3D facial avatar generative model. Leveraging 
+             diffusion principles, our model accurately generates relightable facial avatars, utilizing an identity 
+             embedding extracted from an “in-thewild” 2D facial image.
           </p>
           <p>
-          Our multi-modal diffusion model concurrently outputs facial reflectance maps(albedo, specular, and normals)
-          and shapes, showcasing great generalization capabilities.
-          It is solely trained on an annotated subset of a public facial dataset, paired with 3D reconstructions.
-          We revisit the typical 3D facial fitting approach by guiding a reverse diffusion process using perceptual and face recognition losses.
+            The introduced multi-modal diffusion model is the first to concurrently output facial reflectance maps 
+            (diffuse and specular albedo and normals) and shapes, showcasing great generalization capabilities.
+            It is solely trained on an annotated subset of a public facial dataset, paired with 3D reconstructions.
+             We revisit the typical 3D facial fitting approach by guiding a reverse diffusion process using perceptual
+             and face recognition losses.
           </p>
           <p>
-          Being the first LDM conditioned on face recognition embeddings, FitDiff reconstructs relightable human avatars,
-            that can be used as-is in typical rendering engines, starting only from a single unconstrained facial image
-            while achieving state-of-the-art performance.
-
-          </p>
+            Being the first 3D LDM conditioned on face recognition embeddings, FitDiff reconstructs relightable human avatars,
+            that can be used as-is in common rendering engines, starting only from an unconstrained facial image, 
+            and achieving state-of-the-art performance.
+          </p>  
           <br>
         </div>
       </div>
@@ -104,8 +153,6 @@
       <div class="column is-full-width">
         <h2 class="title is-3">Method</h2>
       </h2>
-<!--      <img src="./images/method.gif" class="hero-body"-->
-<!--              alt="Method Overview"/>-->
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./videos/method.mp4"
                 type="video/mp4">
